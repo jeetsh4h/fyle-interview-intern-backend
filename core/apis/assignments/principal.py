@@ -26,7 +26,6 @@ def grade_assignment(p, incoming_payload):
     graded_assignment = Assignment.mark_grade_by_principal(
         _id=grade_assignment_payload.id,
         grade=grade_assignment_payload.grade,
-        auth_principal=p
     )
     db.session.commit()
     graded_assignment_dump = AssignmentSchema().dump(graded_assignment)
