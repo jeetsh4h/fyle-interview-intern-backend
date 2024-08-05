@@ -19,13 +19,14 @@ ENV FLASK_APP=./core/server.py
 # # run the tests
 # RUN flask db upgrade -d core/migrations/
 # RUN python -m pytest --cov
-###########################################################
 
 # # reset the db
 # RUN rm core/store.sqlite3
 # RUN flask db upgrade -d core/migrations/
+###########################################################
 
 # run the server, to test the application
+RUN flask db upgrade -d core/migrations/
 CMD ["bash", "run.sh"]
 
 
