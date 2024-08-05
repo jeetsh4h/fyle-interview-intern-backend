@@ -25,9 +25,9 @@ ENV FLASK_APP=./core/server.py
 # RUN flask db upgrade -d core/migrations/
 ###########################################################
 
-# run the server, to test the application
+# run the server, to test the API environment
 RUN flask db upgrade -d core/migrations/
-CMD ["bash", "run.sh"]
+RUN bash run.sh & sleep 3 ; kill $!
 
 
 # `docker build -t fyle-intern-backend:test .` to build the image
